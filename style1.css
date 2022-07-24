@@ -25,17 +25,16 @@
     align-items: center;
     font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
     background: #23232e;
-    height: 8vh;
+    height: 15vh;
   }
   
   main {
-    background: url("imagen1.jpeg") no-repeat center center;
+    background: url("borboleta2.jpg") no-repeat center center;
     background-size: cover;
-    height: 98vh;
+    height: 92vh;
     width: 100% ;
     
   }
-
   .foto{
     width: 100%;
     height: 200px;
@@ -66,8 +65,8 @@ img{
   }
   
   .mobile-menu div {
-    width: 32px;
-    height: 2px;
+    width: 33px;
+    height: 3px;
     background: #fff;
     margin: 8px;
     transition: 0.3s;
@@ -87,8 +86,10 @@ img{
       flex-direction: column;
       align-items: center;
       justify-content: space-around;
-      transform: translateX(100%);
+      transform: translateX(100%) ;
       transition: transform 0.3s ease-in;
+      position: fixed;
+      
     }
     .nav-list li {
       margin-left: 0;
@@ -124,4 +125,11 @@ img{
   
   .mobile-menu.active .line3 {
     transform: rotate(45deg) translate(-5px, -7px);
+  }
+  .style{
+     height:80px ;
+        width: 80px;
+       position:fixed;
+        bottom: 30px; 
+      right:35px; z-index:9999;
   }
