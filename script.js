@@ -1,38 +1,35 @@
-const mario = document.querySelector('.mario');
-const pipe = document.querySelector('.pipe');
+let sliderElement = document.querySelector("#slider");
+let buttonElement = document.querySelector("#button");
 
-const jump =() => {
-mario.classList.add('jump');
 
-setTimeout(() =>{
-mario.classList.remove('jump');
-  }, 500);
+let sizePassaword = document.querySelector("#valor");
+let password = document.querySelector("#password");
+
+let containerPassword = document.querySelector("#container-password");
+
+let charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@";
+let novaSenha = "";
+
+sizePassaword.innerHTML = sliderElement.value;
+
+slider.oninput = function(){
+  sizePassaword.innerHTML = this.value;
 }
 
-const loop =setInterval(() =>{
+function generatePassword(){
   
-  console.log('loop')
+let pass = "";
 
-const pipePosition = pipe.offsetLeft;
-const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', '');
+for(let i = 0, n = charset.length; i < sliderElement.value; ++i){
+pass += charset.charAt(Math.floor(Math.random() * n));
 
-console.log(marioPosition);
-
-if (pipePosition < 120 && pipePosition> 0  && marioPosition < 80) {
-
-  pipe.style.animation ='none';
-  pipe.style.left = `${pipePosition}px`;
-
-  mario.style.animation ='none';
-  mario.style.bottom = `${marioPosition}px`;
-
-  mario.src = './images/game-over.png';
-  mario.style.width ='75px'
-  mario.style.marginLeft = '50px'
-
-  clearInterval(loop);
 }
+containerPassword.classList.remove("hide");
+password.innerHTML = pass;
+novaSenha = pass;
 
-},10);
-
-document.addEventListener('keydown', jump);
+}
+function copyPassword(){
+  alert("Senha copiada com sucesso!")
+  navigator.clipboard.writeText(novaSenha);
+}
